@@ -1,0 +1,37 @@
+{
+  "name": "better-set",
+  "version": "1.0.0-beta.0",
+  "description": "A better set lib for JavaScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "publish-latest": "npm publish --access public --tag latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbbottMc/better-set.git"
+  },
+  "files": [
+    "dist",
+    "types/generated",
+    "tsconfig.json",
+    "!**/*.test.*",
+    "!**/test/**"
+  ],
+  "types": "types/generated",
+  "keywords": [
+    "TypeScript",
+    "JavaScript",
+    "Set",
+    "Array"
+  ],
+  "author": "QianShanyao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbbottMc/better-set/issues"
+  },
+  "homepage": "https://github.com/AbbottMc/better-set#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
