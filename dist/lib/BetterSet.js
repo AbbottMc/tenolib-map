@@ -1,7 +1,7 @@
 export class BetterSet extends Array {
     constructor(elements) {
         super();
-        if (elements)
+        if (Array.isArray(elements))
             this.push(...elements);
     }
     add(...elements) {
