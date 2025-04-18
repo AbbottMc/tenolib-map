@@ -20,4 +20,19 @@ export class SetMapMap extends AbstractMapMap {
         }
         return isSucceed;
     }
+    getValueAt(key, mapKey, index) {
+        const map = this.get(key);
+        if (!map)
+            return undefined;
+        return map.getAt(mapKey, index);
+    }
+    forEachValue(callback, thisArg) {
+        this.forEach((childMap, key) => {
+            childMap.forEach((valueSet, mapKey) => {
+                valueSet.forEach((value, index) => {
+                    callback.call(thisArg, value, valueSet, index, mapKey, childMap, key, this);
+                });
+            });
+        });
+    }
 }

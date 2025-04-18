@@ -15,7 +15,7 @@ export abstract class AbstractMapMap<K, MK, V, MT extends Map<MK, any>> extends 
     this.set(key, map);
   }
 
-  forEachValue(callbackfn: (value: V, mapKey: MK, childMap: Map<MK, V>, key: string, mapMap: this) => void, thisArg?: any) {
+  forEachChild(callbackfn: (value: V, mapKey: MK, childMap: Map<MK, V>, key: string, mapMap: this) => void, thisArg?: any) {
     for (const [key, map] of this) {
       for (const [mapKey, value] of map) {
         callbackfn.call(thisArg, value, mapKey, map, key, this);

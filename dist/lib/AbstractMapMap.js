@@ -11,7 +11,7 @@ export class AbstractMapMap extends Map {
         this._setChildMapValue(map, mapKey, value);
         this.set(key, map);
     }
-    forEachValue(callbackfn, thisArg) {
+    forEachChild(callbackfn, thisArg) {
         for (const [key, map] of this) {
             for (const [mapKey, value] of map) {
                 callbackfn.call(thisArg, value, mapKey, map, key, this);
