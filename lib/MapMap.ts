@@ -1,18 +1,13 @@
-export class MapMap<K, MK, V> extends Map<K, Map<MK, V>> {
-  constructor() {
-    super();
+import {AbstractMapMap} from "./AbstractMapMap";
+
+export class MapMap<K, MK, V> extends AbstractMapMap<K, MK, V, Map<MK, V>> {
+
+  protected _newChildMap(): Map<MK, V> {
+    return new Map<MK, V>();
   }
 
-  getAt(key: K, mapKey: MK): V | undefined {
-    const map = this.get(key);
-    if (!map) return undefined;
-    return map.get(mapKey);
-  }
-
-  setValue(key: K, mapKey: MK, value: V) {
-    const map = this.get(key) ?? new Map<MK, V>();
-    map.set(mapKey, value);
-    this.set(key, map);
+  protected _setChildMapValue(map: Map<MK, V>, k: MK, v: V): void {
+    map.set(k, v);
   }
 
   deleteValue(key: K, mapKey: MK) {
@@ -25,13 +20,5 @@ export class MapMap<K, MK, V> extends Map<K, Map<MK, V>> {
       this.delete(key);
     }
     return isSucceed;
-  }
-
-  forEachValue(callbackfn: (value: V, mapKey: MK, childMap: Map<MK, V>, key: string, mapMap: MapMap<K, MK, V>) => void, thisArg?: any) {
-    for (const [key, map] of this) {
-      for (const [mapKey, value] of map) {
-        callbackfn.call(thisArg, value, mapKey, map, key, this);
-      }
-    }
   }
 }
