@@ -1,5 +1,5 @@
 export class AbstractMapMap extends Map {
-    getValue(key, mapKey) {
+    getChild(key, mapKey) {
         const map = this.get(key);
         if (!map)
             return undefined;

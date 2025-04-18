@@ -1,6 +1,6 @@
 import {AbstractMapMap} from "./AbstractMapMap";
 
-export class MapMap<K, MK, V> extends AbstractMapMap<K, MK, V, Map<MK, V>> {
+export class MapMap<K, MK, V> extends AbstractMapMap<K, MK, V, V, Map<MK, V>> {
 
   protected _newChildMap(): Map<MK, V> {
     return new Map<MK, V>();

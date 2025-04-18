@@ -2,7 +2,7 @@ import {AbstractMapMap} from "./AbstractMapMap";
 import {SetMap} from "./SetMap";
 import {BetterSet} from "./BetterSet";
 
-export class SetMapMap<K, MK, V> extends AbstractMapMap<K, MK, V, SetMap<MK, V>> {
+export class SetMapMap<K, MK, V> extends AbstractMapMap<K, MK, BetterSet<V>, V, SetMap<MK, V>> {
 
   protected _newChildMap(): SetMap<MK, V> {
     return new SetMap();

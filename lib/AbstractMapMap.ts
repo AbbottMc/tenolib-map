@@ -1,9 +1,9 @@
-export abstract class AbstractMapMap<K, MK, V, MT extends Map<MK, any>> extends Map<K, MT> {
+export abstract class AbstractMapMap<K, MK, MV, V, MT extends Map<MK, MV>> extends Map<K, MT> {
   protected abstract _newChildMap(): MT;
 
   protected abstract _setChildMapValue(map: MT, k: MK, v: V): void;
 
-  getValue(key: K, mapKey: MK): V | undefined {
+  getChild(key: K, mapKey: MK): MV | undefined {
     const map = this.get(key);
     if (!map) return undefined;
     return map.get(mapKey);
